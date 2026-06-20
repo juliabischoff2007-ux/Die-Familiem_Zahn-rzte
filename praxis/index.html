@@ -3,27 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Praxis – Die Familien-Zahnärzte Hilpoltstein</title>
+  <title>Praxis & Team – Die Familien-Zahnärzte Hilpoltstein</title>
   <link rel="stylesheet" href="../zahnarzt-styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <style>
-    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-    .team-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 14px; padding: 2rem; text-align: center; transition: box-shadow .2s, transform .2s; }
-    .team-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-3px); }
-    .avatar { width: 88px; height: 88px; border-radius: 50%; background: #E1F5EE; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #085041; margin: 0 auto 1.25rem; border: 3px solid #9FE1CB; }
-    .team-card h3 { font-size: 18px; font-weight: 700; color: #085041; margin-bottom: 0.25rem; }
-    .team-card .role { font-size: 13px; color: #1D9E75; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
-    .team-card p { font-size: 14px; color: #666; line-height: 1.7; }
-    .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-    .staff-card { background: #F7FDF9; border: 1px solid #9FE1CB; border-radius: 10px; padding: 1.25rem; display: flex; align-items: center; gap: 1rem; }
-    .staff-avatar { width: 48px; height: 48px; border-radius: 50%; background: #085041; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
-    .staff-card p { font-size: 14px; font-weight: 600; color: #085041; margin: 0; }
-    .staff-card span { font-size: 12px; color: #888; }
-    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
-    .value-card { background: #F7FDF9; border-radius: 12px; padding: 1.5rem; border-left: 4px solid #1D9E75; }
-    .value-card i { font-size: 24px; color: #1D9E75; display: block; margin-bottom: 0.75rem; }
-    .value-card h4 { font-size: 15px; font-weight: 700; color: #085041; margin-bottom: 0.4rem; }
-    .value-card p { font-size: 13px; color: #666; line-height: 1.65; margin: 0; }
+    /* Scharfe Bilder */
+    img { image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; }
+    .doctor-photo, .member-photo { filter: contrast(1.07) brightness(1.02) saturate(1.06); }
+
+    /* Ärzte */
+    .doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem; margin-bottom: 3rem; }
+    .doctor-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 14px; overflow: hidden; transition: box-shadow .2s, transform .2s; }
+    .doctor-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.10); transform: translateY(-3px); }
+    .doctor-photo { width: 100%; height: 220px; object-fit: cover; object-position: center top; display: block; }
+    .doctor-body { padding: 1.5rem; }
+    .doctor-body h3 { font-size: 18px; font-weight: 700; color: #085041; margin-bottom: 0.2rem; }
+    .doctor-body .role { font-size: 12px; color: #1D9E75; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 1rem; }
+    .doctor-body ul { list-style: none; padding: 0; margin: 0; }
+    .doctor-body ul li { font-size: 13px; color: #666; line-height: 1.6; padding: 3px 0 3px 16px; position: relative; }
+    .doctor-body ul li::before { content: "·"; position: absolute; left: 4px; color: #1D9E75; font-size: 18px; line-height: 1.2; }
+    .doctor-body .memberships { font-size: 12px; color: #999; margin-top: 0.75rem; border-top: 1px solid #f0f0f0; padding-top: 0.75rem; }
+
+    /* Team */
+    .team-banner { width: 100%; max-height: 260px; object-fit: cover; object-position: center; border-radius: 14px; margin-bottom: 2rem; display: block; }
+    .members-list { display: flex; flex-direction: column; gap: 1rem; }
+    .member-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; display: flex; gap: 0; overflow: hidden; transition: box-shadow .15s; }
+    .member-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); }
+    .member-photo { width: 110px; min-width: 110px; height: 130px; object-fit: cover; object-position: center top; display: block; }
+    .member-photo-placeholder { width: 110px; min-width: 110px; height: 130px; background: #E1F5EE; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #085041; }
+    .member-body { padding: 1rem 1.25rem; flex: 1; }
+    .member-body h3 { font-size: 15px; font-weight: 700; color: #085041; margin-bottom: 0.15rem; }
+    .member-body .role { font-size: 11px; color: #1D9E75; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+    .member-body ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .member-body ul li { font-size: 12px; color: #666; padding-left: 12px; position: relative; }
+    .member-body ul li::before { content: "·"; position: absolute; left: 2px; color: #1D9E75; }
+
+    .section-label { display: inline-block; background: #E1F5EE; color: #085041; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+
+    @media (max-width: 600px) {
+      .doctors-grid { grid-template-columns: 1fr; }
+      .member-photo, .member-photo-placeholder { width: 80px; min-width: 80px; height: 100px; }
+    }
   </style>
 </head>
 <body>
@@ -54,25 +74,25 @@
   </header>
 
   <div class="page-hero">
-    <p class="breadcrumb"><a href="../">Startseite</a><span>›</span>Praxis</p>
+    <p class="breadcrumb"><a href="../">Startseite</a><span>›</span>Praxis & Team</p>
     <p class="eyebrow">Über uns</p>
-    <h1>Unsere Praxis</h1>
+    <h1>Unsere Praxis & unser Team</h1>
     <p>Seit 1980 betreuen wir Patienten und ihre Familien in Hilpoltstein – mit Herzlichkeit, modernster Technik und transparenter Behandlungsplanung.</p>
   </div>
 
-  <!-- Praxisbild -->
+  <!-- Praxisbild + Über uns -->
   <section class="about-section">
     <div class="about-img">
-      <img src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2022/10/zahnarzt-hilpoltstein-buchholz-loew-praxis-1.jpg" alt="Zahnarztpraxis Hilpoltstein">
+      <img src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2022/10/zahnarzt-hilpoltstein-buchholz-loew-praxis-1.jpg" alt="Zahnarztpraxis Hilpoltstein" class="doctor-photo" style="height:100%;border-radius:0">
     </div>
     <div class="about-text">
       <p class="eyebrow">Seit 1980 für Sie da</p>
       <h2>Ihre Zahnarztpraxis in Hilpoltstein</h2>
       <p>Viele unserer Patienten betreuen wir schon seit Jahren – zum Teil schon seit Eröffnung unserer Praxis im Jahr 1980. Das langjährige Vertrauen unserer Patienten und ihrer Familien ist uns die größte Auszeichnung und gleichzeitig unser Ansporn.</p>
-      <p>Unser Ziel ist es, Ihre Zähne möglichst ein Leben lang zu erhalten. Die Schwerpunkte unserer Praxis liegen in der Zahnerhaltung, Kinderbehandlung und Kieferorthopädie. Der beste Weg dorthin führt über Information und Aufklärung.</p>
+      <p>Unser Ziel ist es, Ihre Zähne möglichst ein Leben lang zu erhalten. Die Schwerpunkte unserer Praxis liegen in der Zahnerhaltung, Kinderbehandlung und Kieferorthopädie.</p>
       <div class="about-facts">
         <div class="fact"><div class="fact-num">45+</div><div class="fact-label">Jahre Erfahrung</div></div>
-        <div class="fact"><div class="fact-num">2</div><div class="fact-label">Zahnärzte</div></div>
+        <div class="fact"><div class="fact-num">4</div><div class="fact-label">Zahnärzte</div></div>
         <div class="fact"><div class="fact-num">1980</div><div class="fact-label">Gegründet</div></div>
       </div>
     </div>
@@ -82,21 +102,69 @@
 
   <!-- Ärzte -->
   <section class="section">
-    <p class="section-title">Unsere Ärzte</p>
-    <p class="section-sub">Zwei erfahrene Zahnärzte, die sich seit Jahren für Ihre Zahngesundheit einsetzen.</p>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="avatar">BB</div>
-        <h3>Dr. Bernd Buchholz</h3>
-        <p class="role">Zahnarzt · Praxisinhaber</p>
-        <p>Dr. Bernd Buchholz ist seit der Gründung der Praxis im Jahr 1980 für seine Patienten da. Mit jahrzehntelanger Erfahrung in der Zahnerhaltung, Kinderzahnheilkunde und Kieferorthopädie ist er ein vertrauter Ansprechpartner für die ganze Familie.</p>
+    <span class="section-label">Ärzte</span>
+    <p class="section-title">Unsere Zahnärzte</p>
+    <p class="section-sub">Vier erfahrene Zahnärzte mit breitem Spektrum an Spezialisierungen – für die ganze Familie.</p>
+    <div class="doctors-grid">
+
+      <div class="doctor-card">
+        <img class="doctor-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/DrBuchholzWEB.jpg" alt="Dr. Bernd Buchholz">
+        <div class="doctor-body">
+          <h3>Dr. med. dent. Bernd Buchholz</h3>
+          <p class="role">Zahnarzt · Praxisinhaber</p>
+          <ul>
+            <li>Studium der Zahnmedizin in Würzburg</li>
+            <li>Promotion an der Universität Würzburg</li>
+          </ul>
+          <p class="memberships">AZ · LAGZ</p>
+        </div>
       </div>
-      <div class="team-card">
-        <div class="avatar">DR</div>
-        <h3>Dr. Daniela Rüb</h3>
-        <p class="role">Zahnärztin · Praxisinhaberin</p>
-        <p>Dr. Daniela Rüb ergänzt das Praxisteam mit ihrer Expertise und ihrem einfühlsamen Umgang mit Patienten jeden Alters. Ihr besonderes Anliegen ist es, auch ängstlichen Patienten die Behandlung so angenehm wie möglich zu gestalten.</p>
+
+      <div class="doctor-card">
+        <img class="doctor-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2022/10/zahnarzt-hilpoltstein-buchholz-loew-team-5.jpg" alt="Dr. Daniela Rüb">
+        <div class="doctor-body">
+          <h3>Dr. med. dent. Daniela Rüb</h3>
+          <p class="role">Zahnärztin · Praxisinhaberin</p>
+          <ul>
+            <li>Studium der Zahnmedizin in Erlangen</li>
+            <li>Promotion an der Universität Erlangen</li>
+            <li>Curriculum Kinderzahnheilkunde 2007/08</li>
+            <li>Curriculum Kieferorthopädie 2010–12</li>
+            <li>Masterclass Aligner Therapy Ormco 2024</li>
+          </ul>
+          <p class="memberships">DGZMK · DGkiz · AZ · LAGZ</p>
+        </div>
       </div>
+
+      <div class="doctor-card">
+        <img class="doctor-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/11/NielsBuchholzWEB-1024x768.jpg" alt="Dr. Niels Buchholz">
+        <div class="doctor-body">
+          <h3>Dr. med. dent. Niels Buchholz</h3>
+          <p class="role">Zahnarzt</p>
+          <ul>
+            <li>Kinderzahnheilkunde</li>
+            <li>Erwachsenenzahnheilkunde</li>
+          </ul>
+          <p class="memberships">DGZMK · DGkiz</p>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <img class="doctor-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/DrSchmidlerWEB-1024x768.jpg" alt="Dr. Bettina Schmidler">
+        <div class="doctor-body">
+          <h3>Dr. med. dent. Bettina Schmidler</h3>
+          <p class="role">Zahnärztin</p>
+          <ul>
+            <li>Studium der Zahnmedizin in Erlangen</li>
+            <li>Promotion an der Universität Erlangen</li>
+            <li>Ästhetik & Funktion (2009/10)</li>
+            <li>Implantologie DGZI (2015)</li>
+            <li>DVT-Sachkunde (2015/2020)</li>
+          </ul>
+          <p class="memberships">DGÄZ · DGZMK</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -104,77 +172,184 @@
 
   <!-- Team -->
   <section class="section" style="background:#F7FDF9">
+    <span class="section-label">Team</span>
     <p class="section-title">Unser Team</p>
-    <p class="section-sub">Hinter jeder guten Praxis steht ein engagiertes Team. Unsere Mitarbeiterinnen und Mitarbeiter sind speziell geschult und bilden sich regelmäßig fort.</p>
-    <div class="staff-grid">
-      <div class="staff-card">
-        <div class="staff-avatar">ZFA</div>
-        <div>
-          <p>Zahnmedizinische Fachangestellte</p>
-          <span>Empfang & Behandlung</span>
-        </div>
-      </div>
-      <div class="staff-card">
-        <div class="staff-avatar">PZR</div>
-        <div>
-          <p>Prophylaxe-Assistenz</p>
-          <span>Professionelle Zahnreinigung</span>
-        </div>
-      </div>
-      <div class="staff-card">
-        <div class="staff-avatar">KFO</div>
-        <div>
-          <p>KFO-Assistenz</p>
-          <span>Kieferorthopädie</span>
-        </div>
-      </div>
-      <div class="staff-card">
-        <div class="staff-avatar">RZP</div>
-        <div>
-          <p>Rezeption & Verwaltung</p>
-          <span>Organisation & Abrechnung</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    <p class="section-sub">Engagierte Fachkräfte, die sich regelmäßig fortbilden – für Ihre beste Betreuung.</p>
+    <img class="team-banner" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2023/02/Website-Banner-Team.jpg" alt="Das Team der Familien-Zahnärzte">
 
-  <hr class="divider">
+    <div class="members-list">
 
-  <!-- Philosophie -->
-  <section class="section">
-    <p class="section-title">Unsere Philosophie</p>
-    <p class="section-sub">Was uns täglich antreibt – und was Sie von uns erwarten dürfen.</p>
-    <div class="values-grid">
-      <div class="value-card">
-        <i class="ti ti-heart"></i>
-        <h4>Transparenz</h4>
-        <p>Wir beginnen jede Behandlung mit einer umfassenden Beratung. Sie wissen immer, was wir tun, warum wir es tun – und was es kostet.</p>
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/BiancaWEB.jpg" alt="Bianca Kunde">
+        <div class="member-body">
+          <h3>Bianca Kunde</h3>
+          <p class="role">Zahnmedizinische Fachangestellte</p>
+          <ul><li>Rezeption</li><li>Organisation</li></ul>
+        </div>
       </div>
-      <div class="value-card">
-        <i class="ti ti-shield-check"></i>
-        <h4>Prophylaxe-Schwerpunkt</h4>
-        <p>Wir haben ein aufeinander abgestimmtes Prophylaxesystem entwickelt, das Vorbeugung in den Mittelpunkt stellt – für alle Altersgruppen.</p>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/HeikeWEB.jpg" alt="Heike Seidel-Buchholz">
+        <div class="member-body">
+          <h3>Heike Seidel-Buchholz</h3>
+          <p class="role">Fortgebildete ZFA</p>
+          <ul><li>Rezeption</li><li>Verwaltung</li><li>Abrechnung</li><li>Buchführung</li></ul>
+        </div>
       </div>
-      <div class="value-card">
-        <i class="ti ti-users"></i>
-        <h4>Spezialistenkooperation</h4>
-        <p>Komplexe Behandlungen gehören in die Hände von Spezialisten. Wir arbeiten eng mit Fachzahnärzten und Chirurgen zusammen.</p>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2022/10/zahnarzt-hilpoltstein-buchholz-loew-team-9.jpg" alt="Eva Löw">
+        <div class="member-body">
+          <h3>Eva Löw</h3>
+          <p class="role">Diplom-Verwaltungswirtin</p>
+          <ul><li>Rezeption</li><li>Verwaltung</li><li>Abrechnung</li></ul>
+        </div>
       </div>
-      <div class="value-card">
-        <i class="ti ti-device-desktop"></i>
-        <h4>Modernste Ausstattung</h4>
-        <p>Von digitalem Röntgen über CEREC-Keramik bis zur digitalen Abdrucktechnik – wir investieren kontinuierlich in moderne Technologie.</p>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/AngelaWEB.jpg" alt="Angela Rahm">
+        <div class="member-body">
+          <h3>Angela Rahm</h3>
+          <p class="role">Zahnmedizinische Fachangestellte</p>
+          <ul><li>Kinder- & Individualprophylaxe</li><li>Fachassistenz Behandlung</li><li>Fachassistenz Röntgen</li><li>Rezeption</li></ul>
+        </div>
       </div>
-      <div class="value-card">
-        <i class="ti ti-school"></i>
-        <h4>Fortbildung</h4>
-        <p>Alle Mitarbeiterinnen und Mitarbeiter bilden sich regelmäßig fort, um Ihnen stets die beste und aktuellste Versorgung bieten zu können.</p>
+
+      <div class="member-card">
+        <div class="member-photo-placeholder">MB</div>
+        <div class="member-body">
+          <h3>Martina Baier</h3>
+          <p class="role">ZMV – Zahnmedizinische Verwaltungsassistenz</p>
+          <ul><li>Abrechnung</li></ul>
+        </div>
       </div>
-      <div class="value-card">
-        <i class="ti ti-award"></i>
-        <h4>Qualitätsmanagement</h4>
-        <p>Unser internes Qualitätsmanagementsystem gewährleistet eine komfortable und sichere Behandlung auf Basis aktueller wissenschaftlicher Erkenntnisse.</p>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2022/10/zahnarzt-hilpoltstein-buchholz-loew-team-7.jpg" alt="Anke Müller">
+        <div class="member-body">
+          <h3>Anke Müller</h3>
+          <p class="role">ZMF – Zahnmedizinische Fachassistentin</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Parodontitisbehandlung</li><li>Fachassistenz Röntgen</li></ul>
+        </div>
       </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/KristinaWEB-1024x768.jpg" alt="Kristina Keil">
+        <div class="member-body">
+          <h3>Kristina Keil</h3>
+          <p class="role">ZMF – Zahnmedizinische Fachassistentin</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Parodontitisbehandlung</li><li>Fachassistenz Röntgen</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/ChristineWEB-1024x768.jpg" alt="Christine Hofbeck">
+        <div class="member-body">
+          <h3>Christine Hofbeck</h3>
+          <p class="role">ZMP – Zahnmedizinische Prophylaxeassistentin</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Parodontitisbehandlung</li><li>Fachassistenz KFO</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/Monika-BaumannWEB-edited.jpg" alt="Monika Baumann">
+        <div class="member-body">
+          <h3>Monika Baumann</h3>
+          <p class="role">ZMP – Zahnmedizinische Prophylaxeassistentin</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Parodontitisbehandlung</li><li>Fachassistenz KFO</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2022/10/astrid_schmid-1024x720.jpg" alt="Astrid Schmidt">
+        <div class="member-body">
+          <h3>Astrid Schmidt</h3>
+          <p class="role">ZMP – Zahnmedizinische Prophylaxeassistentin</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Fachassistenz Behandlung</li><li>Fachassistenz Röntgen</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/EviMeixnerWEB.jpg" alt="Evi Meixner">
+        <div class="member-body">
+          <h3>Evi Meixner</h3>
+          <p class="role">Fortgebildete Zahnmedizinische Fachangestellte</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Fachassistenz Behandlung</li><li>Fachassistenz Röntgen</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/SusanneWEB.jpg" alt="Susanne Binar">
+        <div class="member-body">
+          <h3>Susanne Binar</h3>
+          <p class="role">Fortgebildete Zahnmedizinische Fachangestellte</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Fachassistenz Behandlung</li><li>Fachassistenz Röntgen</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/11/OlgaHinterreiterWEB-1024x768.jpg" alt="Olga Hinterreiter">
+        <div class="member-body">
+          <h3>Olga Hinterreiter</h3>
+          <p class="role">Fortgebildete Zahnmedizinische Fachangestellte</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Fachassistenz Behandlung</li><li>Fachassistenz Röntgen</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/11/SelinaWEB-1024x768.jpg" alt="Selina Endres">
+        <div class="member-body">
+          <h3>Selina Endres</h3>
+          <p class="role">Zahnmedizinische Fachangestellte</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Fachassistenz Behandlung & Röntgen</li><li>Fachassistenz KFO</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/11/AnnalenaWEB.jpg" alt="Anna-Lena Hirscheider">
+        <div class="member-body">
+          <h3>Anna-Lena Hirscheider</h3>
+          <p class="role">Zahnmedizinische Fachangestellte</p>
+          <ul><li>Prophylaxe (Kinder & Erwachsene)</li><li>Professionelle Zahnreinigung</li><li>Fachassistenz Behandlung</li><li>Fachassistenz Röntgen</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/AndreaWEB.jpg" alt="Andrea Gebhard">
+        <div class="member-body">
+          <h3>Andrea Gebhard</h3>
+          <p class="role">Zahnmedizinische Fachangestellte</p>
+          <ul><li>Kinder- & Individualprophylaxe</li><li>Fachassistenz Behandlung</li><li>Fachassistenz Röntgen</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/HelenaWEB.jpg" alt="Helena Harrer">
+        <div class="member-body">
+          <h3>Helena Harrer</h3>
+          <p class="role">Azubi Zahnmedizinische Fachangestellte</p>
+          <ul><li>Ausbildung</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/01/AmelyWEB.jpg" alt="Amely Kattinger">
+        <div class="member-body">
+          <h3>Amely Kattinger</h3>
+          <p class="role">Azubi Zahnmedizinische Fachangestellte</p>
+          <ul><li>Ausbildung</li></ul>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img class="member-photo" src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2024/02/MelanieWEB.jpg" alt="Melanie Distler">
+        <div class="member-body">
+          <h3>Melanie Distler</h3>
+          <p class="role">Medizinische Fachangestellte</p>
+          <ul><li>Sterilisation</li><li>Instrumentenaufbereitung</li></ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
