@@ -8,8 +8,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <style>
     /* Scharfe Bilder */
-    img { image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; }
-    .doctor-photo, .member-photo { filter: contrast(1.07) brightness(1.02) saturate(1.06); }
+    img { image-rendering: -webkit-optimize-contrast; }
+    .doctor-photo { width: 100%; height: 240px; object-fit: cover; object-position: center 10%; display: block; filter: url(#sharpen) contrast(1.1) brightness(1.02) saturate(1.08); }
+    .member-photo { filter: url(#sharpen) contrast(1.1) brightness(1.02) saturate(1.08); }
 
     /* Ärzte */
     .doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem; margin-bottom: 3rem; }
@@ -367,5 +368,13 @@
       <a href="../datenschutz/">Datenschutz</a>
     </div>
   </footer>
+  <!-- SVG Schärfefilter -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <filter id="sharpen">
+        <feConvolveMatrix order="3" kernelMatrix="0 -0.7 0 -0.7 3.8 -0.7 0 -0.7 0" preserveAlpha="true"/>
+      </filter>
+    </defs>
+  </svg>
 </body>
 </html>
