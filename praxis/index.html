@@ -6,6 +6,25 @@
   <title>Praxis – Die Familien-Zahnärzte Hilpoltstein</title>
   <link rel="stylesheet" href="../zahnarzt-styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+    .team-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 14px; padding: 2rem; text-align: center; transition: box-shadow .2s, transform .2s; }
+    .team-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-3px); }
+    .avatar { width: 88px; height: 88px; border-radius: 50%; background: #E1F5EE; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #085041; margin: 0 auto 1.25rem; border: 3px solid #9FE1CB; }
+    .team-card h3 { font-size: 18px; font-weight: 700; color: #085041; margin-bottom: 0.25rem; }
+    .team-card .role { font-size: 13px; color: #1D9E75; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+    .team-card p { font-size: 14px; color: #666; line-height: 1.7; }
+    .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .staff-card { background: #F7FDF9; border: 1px solid #9FE1CB; border-radius: 10px; padding: 1.25rem; display: flex; align-items: center; gap: 1rem; }
+    .staff-avatar { width: 48px; height: 48px; border-radius: 50%; background: #085041; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .staff-card p { font-size: 14px; font-weight: 600; color: #085041; margin: 0; }
+    .staff-card span { font-size: 12px; color: #888; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .value-card { background: #F7FDF9; border-radius: 12px; padding: 1.5rem; border-left: 4px solid #1D9E75; }
+    .value-card i { font-size: 24px; color: #1D9E75; display: block; margin-bottom: 0.75rem; }
+    .value-card h4 { font-size: 15px; font-weight: 700; color: #085041; margin-bottom: 0.4rem; }
+    .value-card p { font-size: 13px; color: #666; line-height: 1.65; margin: 0; }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -41,70 +60,136 @@
     <p>Seit 1980 betreuen wir Patienten und ihre Familien in Hilpoltstein – mit Herzlichkeit, modernster Technik und transparenter Behandlungsplanung.</p>
   </div>
 
+  <!-- Praxisbild -->
   <section class="about-section">
     <div class="about-img">
-      <img src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2022/10/zahnarzt-hilpoltstein-buchholz-loew-praxis-1.jpg" alt="Unsere Praxis">
+      <img src="https://www.die-familien-zahnaerzte.de/wp-content/uploads/2022/10/zahnarzt-hilpoltstein-buchholz-loew-praxis-1.jpg" alt="Zahnarztpraxis Hilpoltstein">
     </div>
     <div class="about-text">
-      <p class="eyebrow">Geschichte & Philosophie</p>
-      <h2>Ihre Zahnarztpraxis in Hilpoltstein seit 1980</h2>
+      <p class="eyebrow">Seit 1980 für Sie da</p>
+      <h2>Ihre Zahnarztpraxis in Hilpoltstein</h2>
       <p>Viele unserer Patienten betreuen wir schon seit Jahren – zum Teil schon seit Eröffnung unserer Praxis im Jahr 1980. Das langjährige Vertrauen unserer Patienten und ihrer Familien ist uns die größte Auszeichnung und gleichzeitig unser Ansporn.</p>
-      <p>Unser Ziel ist es, Ihre Zähne möglichst ein Leben lang zu erhalten. Die Schwerpunkte unserer Praxis liegen in der Zahnerhaltung, Kinderbehandlung und Kieferorthopädie.</p>
+      <p>Unser Ziel ist es, Ihre Zähne möglichst ein Leben lang zu erhalten. Die Schwerpunkte unserer Praxis liegen in der Zahnerhaltung, Kinderbehandlung und Kieferorthopädie. Der beste Weg dorthin führt über Information und Aufklärung.</p>
       <div class="about-facts">
         <div class="fact"><div class="fact-num">45+</div><div class="fact-label">Jahre Erfahrung</div></div>
         <div class="fact"><div class="fact-num">2</div><div class="fact-label">Zahnärzte</div></div>
-        <div class="fact"><div class="fact-num">4</div><div class="fact-label">Schwerpunkte</div></div>
+        <div class="fact"><div class="fact-num">1980</div><div class="fact-label">Gegründet</div></div>
       </div>
     </div>
   </section>
 
+  <hr class="divider">
+
+  <!-- Ärzte -->
   <section class="section">
-    <p class="section-title">Unser Ansatz</p>
-    <p class="section-sub">Was uns von anderen Praxen unterscheidet.</p>
-    <div class="two-col">
-      <div class="list-card">
-        <div class="list-card-icon"><i class="ti ti-heart"></i></div>
-        <div class="list-card-body">
-          <h3>Transparente Behandlungsplanung</h3>
-          <p>Wir beginnen jede komplexe Behandlung mit einer intensiven Beratung. Sie wissen immer, was wir tun und warum – und welche Kosten auf Sie zukommen. Keine Überraschungen.</p>
+    <p class="section-title">Unsere Ärzte</p>
+    <p class="section-sub">Zwei erfahrene Zahnärzte, die sich seit Jahren für Ihre Zahngesundheit einsetzen.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="avatar">BB</div>
+        <h3>Dr. Bernd Buchholz</h3>
+        <p class="role">Zahnarzt · Praxisinhaber</p>
+        <p>Dr. Bernd Buchholz ist seit der Gründung der Praxis im Jahr 1980 für seine Patienten da. Mit jahrzehntelanger Erfahrung in der Zahnerhaltung, Kinderzahnheilkunde und Kieferorthopädie ist er ein vertrauter Ansprechpartner für die ganze Familie.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">DR</div>
+        <h3>Dr. Daniela Rüb</h3>
+        <p class="role">Zahnärztin · Praxisinhaberin</p>
+        <p>Dr. Daniela Rüb ergänzt das Praxisteam mit ihrer Expertise und ihrem einfühlsamen Umgang mit Patienten jeden Alters. Ihr besonderes Anliegen ist es, auch ängstlichen Patienten die Behandlung so angenehm wie möglich zu gestalten.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Team -->
+  <section class="section" style="background:#F7FDF9">
+    <p class="section-title">Unser Team</p>
+    <p class="section-sub">Hinter jeder guten Praxis steht ein engagiertes Team. Unsere Mitarbeiterinnen und Mitarbeiter sind speziell geschult und bilden sich regelmäßig fort.</p>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="staff-avatar">ZFA</div>
+        <div>
+          <p>Zahnmedizinische Fachangestellte</p>
+          <span>Empfang & Behandlung</span>
         </div>
       </div>
-      <div class="list-card">
-        <div class="list-card-icon"><i class="ti ti-shield-check"></i></div>
-        <div class="list-card-body">
-          <h3>Optimales Prophylaxesystem</h3>
-          <p>Wir haben ein aufeinander abgestimmtes Prophylaxesystem entwickelt, das Vorbeugung in den Mittelpunkt stellt – für alle Altersgruppen, von Kindern bis hin zu Senioren.</p>
+      <div class="staff-card">
+        <div class="staff-avatar">PZR</div>
+        <div>
+          <p>Prophylaxe-Assistenz</p>
+          <span>Professionelle Zahnreinigung</span>
         </div>
       </div>
-      <div class="list-card">
-        <div class="list-card-icon"><i class="ti ti-users"></i></div>
-        <div class="list-card-body">
-          <h3>Zusammenarbeit mit Spezialisten</h3>
-          <p>Komplexe Behandlungen gehören in die Hände von Spezialisten. Wir arbeiten eng mit Fachzahnärzten und Chirurgen zusammen und koordinieren für Sie eine optimale Versorgung.</p>
+      <div class="staff-card">
+        <div class="staff-avatar">KFO</div>
+        <div>
+          <p>KFO-Assistenz</p>
+          <span>Kieferorthopädie</span>
         </div>
       </div>
-      <div class="list-card">
-        <div class="list-card-icon"><i class="ti ti-device-desktop"></i></div>
-        <div class="list-card-body">
-          <h3>Modernste Ausstattung</h3>
-          <p>Von der digitalen Röntgenaufnahme über CEREC-Keramik bis zur digitalen Abdrucktechnik – wir investieren kontinuierlich in moderne Technologie für Ihre Sicherheit und Ihren Komfort.</p>
+      <div class="staff-card">
+        <div class="staff-avatar">RZP</div>
+        <div>
+          <p>Rezeption & Verwaltung</p>
+          <span>Organisation & Abrechnung</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Philosophie -->
+  <section class="section">
+    <p class="section-title">Unsere Philosophie</p>
+    <p class="section-sub">Was uns täglich antreibt – und was Sie von uns erwarten dürfen.</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="ti ti-heart"></i>
+        <h4>Transparenz</h4>
+        <p>Wir beginnen jede Behandlung mit einer umfassenden Beratung. Sie wissen immer, was wir tun, warum wir es tun – und was es kostet.</p>
+      </div>
+      <div class="value-card">
+        <i class="ti ti-shield-check"></i>
+        <h4>Prophylaxe-Schwerpunkt</h4>
+        <p>Wir haben ein aufeinander abgestimmtes Prophylaxesystem entwickelt, das Vorbeugung in den Mittelpunkt stellt – für alle Altersgruppen.</p>
+      </div>
+      <div class="value-card">
+        <i class="ti ti-users"></i>
+        <h4>Spezialistenkooperation</h4>
+        <p>Komplexe Behandlungen gehören in die Hände von Spezialisten. Wir arbeiten eng mit Fachzahnärzten und Chirurgen zusammen.</p>
+      </div>
+      <div class="value-card">
+        <i class="ti ti-device-desktop"></i>
+        <h4>Modernste Ausstattung</h4>
+        <p>Von digitalem Röntgen über CEREC-Keramik bis zur digitalen Abdrucktechnik – wir investieren kontinuierlich in moderne Technologie.</p>
+      </div>
+      <div class="value-card">
+        <i class="ti ti-school"></i>
+        <h4>Fortbildung</h4>
+        <p>Alle Mitarbeiterinnen und Mitarbeiter bilden sich regelmäßig fort, um Ihnen stets die beste und aktuellste Versorgung bieten zu können.</p>
+      </div>
+      <div class="value-card">
+        <i class="ti ti-award"></i>
+        <h4>Qualitätsmanagement</h4>
+        <p>Unser internes Qualitätsmanagementsystem gewährleistet eine komfortable und sichere Behandlung auf Basis aktueller wissenschaftlicher Erkenntnisse.</p>
       </div>
     </div>
   </section>
 
   <div class="strip">
-    <div class="strip-item"><i class="ti ti-map-pin"></i> Christoph-Sturm-Str. 26, 91161 Hilpoltstein</div>
     <div class="strip-item"><i class="ti ti-phone"></i> <a href="tel:+4991741881" style="color:#085041;text-decoration:none">+49 9174 1881</a></div>
+    <div class="strip-item"><i class="ti ti-mail"></i> <a href="mailto:info@die-familien-zahnaerzte.de" style="color:#085041;text-decoration:none">info@die-familien-zahnaerzte.de</a></div>
     <div class="strip-item" style="margin-left:auto"><a href="../kontakt/" class="btn-primary" style="font-size:13px;padding:10px 20px"><i class="ti ti-calendar"></i> Termin anfragen</a></div>
   </div>
 
   <footer class="footer">
-    <p>© 2024 Die Familien-Zahnärzte · Dr. Buchholz &amp; Dr. Rüb · Hilpoltstein</p>
+    <p>© 2026 Die Familien-Zahnärzte · Dr. Buchholz &amp; Dr. Rüb · Hilpoltstein</p>
     <div class="footer-links">
       <a href="../">Startseite</a>
-      <a href="#">Impressum</a>
-      <a href="#">Datenschutz</a>
+      <a href="../impressum/">Impressum</a>
+      <a href="../datenschutz/">Datenschutz</a>
     </div>
   </footer>
 </body>
